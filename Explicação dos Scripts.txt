@@ -1,0 +1,39 @@
+Explicação dos Scripts
+
+    textoclaro-add.java:
+        Este script cria um novo objeto JSON com os dados do usuário (username e password).
+        Verifica se o arquivo textoclaro.json existe. Se existir, lê o conteúdo do arquivo para um JSONArray.
+        Adiciona o novo usuário ao JSONArray.
+        Escreve o JSONArray atualizado de volta no arquivo textoclaro.json.
+
+    textoclaro-check.java:
+        Este script recebe username e password como argumentos da linha de comando.
+        Lê o arquivo textoclaro.json e converte seu conteúdo para um JSONArray.
+        Itera sobre o JSONArray para verificar se há um usuário com o mesmo username e password.
+        Imprime uma mensagem indicando se o usuário foi encontrado ou não encontrado no arquivo JSON.
+
+Notas:
+
+    Certifique-se de ter a biblioteca JSON-Simple adicionada ao seu projeto para manipulação de JSON em Java.
+    Estes são exemplos básicos e não tratam exceções específicas ou validações detalhadas como criptografia de senha. Para um ambiente de produção, considere implementar medidas de segurança adicionais, como hashing de senhas.
+    Teste os scripts com diversos casos de uso para garantir que funcionem conforme o esperado.
+
+    bcrypt-add.java:
+        Este script usa a biblioteca jBCrypt para gerar um hash seguro da senha do usuário usando o algoritmo bcrypt.
+        Um novo objeto JSON é criado com username, password (hash bcrypt) e salt.
+        Verifica se o arquivo bcrypt.json existe. Se existir, lê o conteúdo do arquivo para um JSONArray.
+        Adiciona o novo usuário ao JSONArray.
+        Escreve o JSONArray atualizado de volta no arquivo bcrypt.json.
+
+    bcrypt-check.java:
+        Este script recebe username e password como argumentos da linha de comando.
+        Usa jBCrypt para comparar o hash da senha fornecida com o hash armazenado no arquivo bcrypt.json.
+        Itera sobre o JSONArray para encontrar um usuário com o mesmo username.
+        Verifica se a senha fornecida corresponde ao hash armazenado usando BCrypt.checkpw().
+        Imprime uma mensagem indicando se o usuário foi encontrado e se a senha corresponde.
+
+Notas:
+
+    Certifique-se de ter a biblioteca jBCrypt adicionada ao seu projeto para a manipulação segura de senhas com bcrypt em Java.
+    Os scripts acima não lidam com exceções de forma detalhada. Para um ambiente de produção, você deve adicionar tratamento de erros robusto.
+    Teste os scripts com diferentes números de rounds e senhas para garantir que funcionem conforme o esperado.
